@@ -45,7 +45,7 @@
           <td><input [(ngModel)]='address.city' (change)="updateAddress(address)" class="input-label"/></td>
           <td><input [(ngModel)]='address.street' (change)="updateAddress(address)" class="input-label"/></td>
           <td><input [(ngModel)]='address.houseNumber' (change)="updateAddress(address)" class="input-label"/>
-            <a  class="pull-right text-danger">
+            <a (click)="deleteAddress(address)" class="pull-right text-danger">
               <i class="fa fa-trash-o"></i>
             </a>
           </td>

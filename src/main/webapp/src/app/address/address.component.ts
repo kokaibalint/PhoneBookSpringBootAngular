@@ -53,6 +53,20 @@ export class AddressComponent implements OnInit {
     );
   }
 
+  deleteAddress(address: AddressModel) {
+    if(confirm("Are you sure you want to delete address?")) {
+      this.apiService.deleteAddress(address.id).subscribe(
+        res => {
+          let indexOfAddress = this.addresses.indexOf(address);
+          this.addresses.splice(indexOfAddress);
+        },
+        err => {
+          alert("Could not delete address");
+        }
+        );
+      }
+  }
+
   public getAllAddresses(){
     this.apiService.getAllAddresses().subscribe(
       res => {

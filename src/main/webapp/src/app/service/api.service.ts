@@ -19,8 +19,8 @@ export class ApiService {
     return this.http.post<AddressModel>(this.BASE_URL, address);
   }
 
-  deleteAddress(id: string): Observable<any> {
-    return this.http.delete(this.BASE_URL + id);
+  deleteAddress(id: number): Observable<any> {
+    return this.http.delete(this.BASE_URL + '/' + id);
   }
 
 }
