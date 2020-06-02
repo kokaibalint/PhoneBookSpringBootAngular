@@ -1,0 +1,58 @@
+<div class="container">
+  <!-- Menu-->
+    <div class="row">
+      <!-- Search Bar -->
+      <div class="col-md-8">
+        <input type="text"
+        [(ngModel)]="searchText"
+        placeholder="Search notes...">
+      </div>
+      <div class="col-md-4">
+        <button type="button" (click)="createAddress()"
+         class="btn btn-info pull-right">
+         <i class="fa fa-plus">New Address</i>
+        </button>
+      </div>
+    </div>
+     <!-- Notebooks Menu -->
+     <div class="col-md-3">
+      <br>
+      <div class="list-group list-group-flush">
+        <a (click)="createAddress()" class="list-group-item list-group-item-action">
+        </a>
+      </div>
+     </div>
+
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr >
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Age</th>
+              <th>Email address</th>
+              <th>City</th>
+              <th>Street</th>
+              <th>House Num</th>
+            </tr>
+      </thead>
+      <tbody class="addresses">
+         <tr *ngFor="let address of addresses | addressFilter:searchText">
+          <td><input [(ngModel)]='address.firstName' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.lastName' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.age' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.email' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.city' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.street' (change)="updateAddress(address)" class="input-label"/></td>
+          <td><input [(ngModel)]='address.houseNumber' (change)="updateAddress(address)" class="input-label"/>
+            <a  class="pull-right text-danger">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
